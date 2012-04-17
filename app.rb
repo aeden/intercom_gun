@@ -13,9 +13,12 @@ post '/:appid/messages' do
       :subject => params[:"subject"],
       :body => params[:"stripped-text"]
     )
-    Intercom.post("/v1/users/message_threads", :body => {
+    res = Intercom.post("/v1/users/message_threads", :body => {
       :email => message.from,
       :body => message.body
     })
+    p res.code
+    p res.message
+    p res.body
   end
 end
