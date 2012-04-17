@@ -17,8 +17,5 @@ post '/:appid/messages' do
       :email => message.from,
       :body => message.body
     })
-    p res.code
-    p res.message
-    p res.body
   end
 end
