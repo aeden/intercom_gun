@@ -6,5 +6,4 @@ class Intercom
   basic_auth ENV['INTERCOM_APP_ID'], ENV['INTERCOM_APP_KEY'] 
   format :json
   headers 'Content-Type' => 'application/json'
-  debug_output $stdout
 end
