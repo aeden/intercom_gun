@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'hashie'
 require 'multi_json'
+require 'mail'
 require './intercom'
 
 get '/' do
@@ -10,7 +11,7 @@ end
 post '/:appid/messages' do
   if params[:appid] == 'dnsimple'
     message = Hashie::Mash.new(
-      :from => params[:"from"],
+      :from => Mail::Address.new(params[:"from"]).address,
       :subject => params[:"subject"],
       :body => params[:"stripped-text"]
     )
