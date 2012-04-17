@@ -9,7 +9,7 @@ get '/' do
 end
 
 post '/:appid/messages' do
-  if params[:appid] == 'dnsimple'
+  if params[:appid] == ENV['INTERCOM_APP_ID'] 
     message = Hashie::Mash.new(
       :from => Mail::Address.new(params[:"from"]).address,
       :subject => params[:"subject"],
