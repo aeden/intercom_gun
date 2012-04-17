@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'hashie'
 require './intercom'
 
 get '/' do
